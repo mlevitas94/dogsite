@@ -1,15 +1,21 @@
 <template>
   <div id="app">
+	  <div class="contactButton">
+		  <font-awesome-icon icon="comment-dots" size="2x"/>
+	  </div>
     <Nav/>
+	<Intro/>
   </div>
 </template>
 
 <script>
 import Nav from './components/Nav'
+import Intro from './components/Intro'
 export default {
   name: "App",
   components:{
-    Nav
+	Nav,
+	Intro
   }
 };
 </script>
@@ -20,6 +26,19 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.contactButton{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: 11px;
+	background-color: black;
+	border-top-left-radius: 10px;
+	svg{
+		color: white;
+		transform: scaleX(-1);
+	}
 }
 
 html, body, div, span, applet, object, iframe,
@@ -50,6 +69,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: #DEDEDE;
 }
 ol, ul {
 	list-style: none;

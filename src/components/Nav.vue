@@ -12,8 +12,10 @@
 @import '../../variables.scss';
 
 .navCont{
-  background-color: white;
   padding-top: 11px;
+  position: fixed;
+  top: 0;
+  width: 100%;
   svg{
     margin: 0 11px 0 auto;
     display: block;
