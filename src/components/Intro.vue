@@ -2,8 +2,13 @@
   <div class="introCont">
     <h3>Jeffery Rosario</h3>
     <div class="photoCont">
-      <div v-for="(dog, i) in Dogs" v-bind:key="i">
-        <img :src="dog"/>
+      <div class="slideCont">
+        <div v-for="(dog, i) in Doglist" v-bind:key="i">
+          <img :src="dog" />
+        </div>
+        <div v-for="(dog, i) in Doglist" v-bind:key="`extra${i}`">
+          <img :src="dog" />
+        </div>
       </div>
     </div>
     <h1>Dog Walking <span>•</span> Dog Sitting</h1>
@@ -14,7 +19,11 @@
 import Dogs from "./compAssets/dogs";
 export default {
   name: "Intro",
-  Dogs
+  data() {
+    return {
+      Doglist: [...Dogs],
+    };
+  },
 };
 </script>
 
@@ -42,7 +51,30 @@ export default {
     font-size: 2rem;
   }
   .photoCont {
-    min-height: 50%;
+    overflow: hidden;
+    display: flex;
+    @keyframes slide {
+      0% {
+        transform: translate(0px);
+      }
+      100% {
+        transform: translate(-50%);
+      }
+    }
+    .slideCont {
+      display: inline-flex;
+      animation: slide 60s linear infinite;
+      div {
+        min-width: 225px;
+        max-height: 225px;
+        overflow: hidden;
+        margin: 0 22px;
+        border-radius: 50%;
+        img {
+          width: 100%;
+        }
+      }
+    }
   }
 }
 </style>
