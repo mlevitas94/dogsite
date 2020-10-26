@@ -1,6 +1,6 @@
 <template>
   <div class="introCont">
-    <h3>Jeffery Rosario</h3>
+    <h3>Jeffrey Rosario</h3>
     <div class="photoCont">
       <div class="slideCont">
         <div v-for="(dog, i) in Doglist" v-bind:key="i">
