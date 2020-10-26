@@ -14,6 +14,7 @@
 .navCont{
   padding-top: 11px;
   position: fixed;
+  z-index: 100;
   top: 0;
   width: 100%;
   svg{

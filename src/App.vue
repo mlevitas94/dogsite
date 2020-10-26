@@ -5,17 +5,20 @@
 	  </div>
     <Nav/>
 	<Intro/>
+	<About/>
   </div>
 </template>
 
 <script>
 import Nav from './components/Nav'
 import Intro from './components/Intro'
+import About from './components/About'
 export default {
   name: "App",
   components:{
 	Nav,
-	Intro
+	Intro,
+	About
   }
 };
 </script>
@@ -33,6 +36,7 @@ export default {
 	bottom: 0;
 	right: 0;
 	padding: 11px;
+	z-index: 100;
 	background-color: black;
 	border-top-left-radius: 10px;
 	svg{
