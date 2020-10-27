@@ -30,6 +30,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../variables.scss';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -155,7 +156,7 @@ section {
 }
 body {
   line-height: 1;
-  background-color: #dedede;
+  background-color: $color2;
 }
 ol,
 ul {

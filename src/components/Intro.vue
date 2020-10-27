@@ -1,6 +1,7 @@
 <template>
   <div class="introCont">
     <h3>Jeffrey Rosario</h3>
+    <h1>Dog Walking <span>•</span> Dog Sitting</h1>
     <div class="photoCont">
       <div class="slideCont">
         <div v-for="(dog, i) in Doglist" v-bind:key="i">
@@ -11,7 +12,6 @@
         </div>
       </div>
     </div>
-    <h1>Dog Walking <span>•</span> Dog Sitting</h1>
   </div>
 </template>
 
@@ -35,20 +35,21 @@ export default {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  height: calc(100vh - 43px);
+  min-height: calc(100vh - 43px);
   margin-top: 43px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   h3,
   h1 {
     text-align: center;
+    margin-bottom: 15vh;
     span {
       color: $color1;
     }
   }
   h3 {
     font-size: 2rem;
+    margin-bottom: 14vh;
   }
   .photoCont {
     overflow: hidden;
