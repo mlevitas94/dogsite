@@ -37,8 +37,21 @@ export default {
   background-repeat: no-repeat;
   min-height: calc(100vh - 43px);
   margin-top: 43px;
-  display: flex;
-  flex-direction: column;
+  max-height: 500px;
+  &::before{
+    content: '';
+    position: absolute;
+    display: none;
+    top: 0;
+    left: -400px;
+    height: 100%;
+    width: 100vh;
+    min-width: 668px;
+    min-height: 668px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: $color1;
+  }
   h3,
   h1 {
     text-align: center;
@@ -75,6 +88,32 @@ export default {
           width: 100%;
         }
       }
+    }
+  }
+  @media screen and(min-width : $breakMd){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &::before{
+      display: block;
+      z-index: 10;
+    }
+    h1,h3{
+      position: absolute;
+      margin-left: 44px;
+      z-index: 20;
+    }
+    h3{
+      top: 40vh;
+    }
+    h1{
+      top: 60vh;
+      span{
+        color: $color2;
+      }
+    }
+    .photoCont{
+      z-index: 0;
     }
   }
 }

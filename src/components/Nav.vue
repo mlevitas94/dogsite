@@ -1,6 +1,15 @@
 <template>
   <div class="navCont">
-    <font-awesome-icon icon="bars" size="2x" />
+    <div class="mobileNav">
+      <font-awesome-icon icon="bars" size="2x" />
+    </div>
+    <div class="deskNav">
+      <ul>
+        <li>About</li>
+        <li>Pricing</li>
+        <li>Contact</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -19,6 +28,25 @@
   svg {
     margin: 0 11px 0 auto;
     display: block;
+  }
+  @media screen and (min-width: $breakMd) {
+    background-color: $color1;
+    .mobileNav {
+      display: none;
+    }
+    .deskNav {
+      display: block;
+      display: flex;
+      flex-direction: row-reverse;
+      ul {
+        display: flex;
+        font-size: $size2;
+        li {
+          margin: 0 44px;
+          padding-bottom: 11px;
+        }
+      }
+    }
   }
 }
 </style>
