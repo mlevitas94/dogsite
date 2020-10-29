@@ -31,12 +31,8 @@ export default {
 @import "../../variables.scss";
 
 .introCont {
-  background-image: url("../assets/dogprint.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   min-height: calc(100vh - 43px);
-  margin-top: 43px;
+  padding-top: 43px;
   max-height: 500px;
   &::before{
     content: '';

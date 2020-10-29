@@ -36,7 +36,7 @@ In 2015, I co-founded a pet-care company and acted as the general manager during
     background-color: $color1;
     position: relative;
     margin: 60vw auto 0 auto;
-    max-width: 1000px;
+    max-width: $breakLg;
     img {
       width: 80%;
       margin: 0 auto;
@@ -87,11 +87,6 @@ In 2015, I co-founded a pet-care company and acted as the general manager during
       }
     }
   }
-  @media screen and (min-width: $breakLg){
-    div{
-      img{
-      }
-    }
-  }
+
 }
 </style>

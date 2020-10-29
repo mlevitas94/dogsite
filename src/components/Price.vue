@@ -40,7 +40,8 @@
 @import "../../variables.scss";
 
 .priceCont {
-  margin-top: 44px;
+  margin: 44px auto 0 auto;
+  max-width: $breakLg;
   h3 {
     font-size: $size3;
     text-align: center;
@@ -50,8 +51,13 @@
   }
   .pricingGroups {
     margin: 44px 22px;
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+    justify-content: center;
     .group {
       margin: 44px 0;
+      width: 100%;
       h4 {
         padding: 10px 5px;
         background-color: $color1;
@@ -67,6 +73,17 @@
         li {
           margin: 11px 0 0 5px;
         }
+      }
+    }
+  }
+  @media screen and(min-width: $breakMd){
+    .pricingGroups{
+      h4{
+        text-align: center;
+      }
+      .group{
+        width: 40%;
+        margin: 22px
       }
     }
   }

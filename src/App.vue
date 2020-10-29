@@ -32,9 +32,17 @@ export default {
 <style lang="scss">
 @import '../variables.scss';
 #app {
+  background-image: url("./assets/dogprint.png");
+  background-size: contain;
+  background-position:center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @media screen and (min-width:$breakMd){
+    background-position: top 35px center;
+  }
 }
 
 .contactButton {
