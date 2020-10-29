@@ -29,6 +29,9 @@
     margin: 0 11px 0 auto;
     display: block;
   }
+  .deskNav{
+    display: none;
+  }
   @media screen and (min-width: $breakMd) {
     background-color: $color1;
     .mobileNav {

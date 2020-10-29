@@ -1,9 +1,11 @@
 <template>
   <div class="aboutCont">
     <h3>About Me</h3>
-    <span></span>
+    <span class="titleSpan"></span>
     <div>
       <img src="../assets/IMG_3070.jpg" />
+      <span></span>
+
       <pre>
 Ever since I was a young child, I have been surrounded by animals. From your run-of-the-mill dogs and cats to exotic birds and reptiles, pet care has been a life-long passion. 
 
@@ -27,13 +29,14 @@ In 2015, I co-founded a pet-care company and acted as the general manager during
     text-align: center;
     font-size: $size3;
   }
-  span {
+  .titleSpan {
     @include spanDash;
   }
   div {
     background-color: $color1;
     position: relative;
-    margin-top: 60vw;
+    margin: 60vw auto 0 auto;
+    max-width: 1000px;
     img {
       width: 80%;
       margin: 0 auto;
@@ -51,6 +54,43 @@ In 2015, I co-founded a pet-care company and acted as the general manager during
       white-space: pre-wrap;
       padding: 60vw 22px 22px 22px;
       line-height: $size1;
+    }
+  }
+  @media screen and (min-width: $breakSm) {
+    div {
+      margin-top: 44px;
+      background-color: unset;
+      position: relative;
+      img {
+        display: initial;
+        position: unset;
+        width: 300px;
+        float: left;
+        top: unset;
+        left: unset;
+        right: unset;
+        left: unset;
+        margin: 0 33px 11px 22px;
+        border: none;
+      } 
+      span{
+        display: block;
+        width: 5px;
+        height: 400px;
+        position: absolute;
+        background-color: $color1;
+        left: 337px;
+      }
+      pre {
+        padding: 0 22px 22px 22px;
+        height: 100%;
+      }
+    }
+  }
+  @media screen and (min-width: $breakLg){
+    div{
+      img{
+      }
     }
   }
 }
