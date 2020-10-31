@@ -1,7 +1,10 @@
 <template>
   <div class="introCont">
-    <h3>Jeffrey Rosario</h3>
-    <h1>Dog Walking <span>•</span> Dog Sitting</h1>
+    <div class="introTitles">
+      <h3>Jeffrey Rosario</h3>
+      <h1>Dog Walking <span>•</span> Dog Sitting</h1>
+
+    </div>
     <div class="photoCont">
       <div class="slideCont">
         <div v-for="(dog, i) in Doglist" v-bind:key="i">
@@ -94,13 +97,17 @@ export default {
       display: block;
       z-index: 10;
     }
-    h1,h3{
+    .introTitles{
       position: absolute;
       margin-left: 44px;
       z-index: 20;
+      top: 42vh;
+      h3{
+        margin-bottom: 44px;
+      }
     }
     h3{
-      top: 40vh;
+      
     }
     h1{
       top: 60vh;

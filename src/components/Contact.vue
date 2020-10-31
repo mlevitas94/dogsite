@@ -1,17 +1,20 @@
 <template>
   <div class="contactCont">
     <div class="sizeCont">
-      <p>
-        To me, all pets deserve the love and care needed to have a great life —
-        and that is my goal when caring for pets in any and all capacities. If
-        interested in my dog walking, pet photography and other pet-care
-        services, please contact me here:
-      </p>
-
-      <a href="#">mail@mail.com</a>
-      <div class="social">
-        <font-awesome-icon :icon="['fab', 'instagram']" size="2x" />
-        <font-awesome-icon :icon="['fab', 'twitter']" size="2x" />
+      <div class="topCont">
+        <p>
+          To me, all pets deserve the love and care needed to have a great life
+          — and that is my goal when caring for pets in any and all capacities.
+          If interested in my dog walking, pet photography and other pet-care
+          services, please contact me here:
+        </p>
+        <div>
+          <a href="#">mail@mail.com</a>
+          <div class="social">
+            <font-awesome-icon :icon="['fab', 'instagram']" size="2x" />
+            <font-awesome-icon :icon="['fab', 'twitter']" size="2x" />
+          </div>
+        </div>
       </div>
       <div class="buttons">
         <button class="appointmentReq">Appointment Request</button>
@@ -27,7 +30,7 @@
             <label for="">Email</label>
             <input type="email" />
           </div>
-          <div>
+          <div class="messageCont">
             <label for="">Message</label>
             <textarea name="message" id="" rows="5"></textarea>
           </div>
@@ -48,7 +51,7 @@ export default {};
 .contactCont {
   background-color: $color1;
 
-  padding: 22px;
+  padding: 22px 22px 66px 22px;
   line-height: $size1;
   .sizeCont {
     max-width: $breakLg;
@@ -115,6 +118,42 @@ export default {};
       margin-top: 22px;
       svg {
         margin-right: 22px;
+      }
+    }
+  }
+  @media screen and (min-width: $breakMd) {
+    .sizeCont {
+      .topCont {
+        display: flex;
+        justify-content: space-around;
+        p {
+          width: 50%;
+        }
+      }
+      .buttons {
+        width: 300px;
+      }
+      form {
+        button{
+          width: 100px;
+        }
+        .contactForm {
+          display: flex;
+          justify-content: space-between;
+          flex-flow: wrap;
+          width: 80%;
+          margin: 0 auto;
+          div{
+            width: 45%;
+          }
+          .messageCont{
+            width: 100%;
+            textarea{
+              width: 100%;
+            }
+          }
+
+        }
       }
     }
   }
