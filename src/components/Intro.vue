@@ -3,7 +3,6 @@
     <div class="introTitles">
       <h3>Jeffrey Rosario</h3>
       <h1>Dog Walking <span>•</span> Dog Sitting</h1>
-
     </div>
     <div class="photoCont">
       <div class="slideCont">
@@ -34,34 +33,41 @@ export default {
 @import "../../variables.scss";
 
 .introCont {
-  min-height: calc(100vh - 43px);
+  height: calc(100vh - 43px);
   padding-top: 43px;
-  max-height: 500px;
-  &::before{
-    content: '';
+  min-height: 650px;
+  max-height: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  &::before {
+    content: "";
     position: absolute;
     display: none;
-    top: 0;
-    left: -400px;
-    height: 100%;
-    width: 100vh;
-    min-width: 668px;
-    min-height: 668px;
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
+    top: -300px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
     background-color: $color1;
   }
-  h3,
-  h1 {
-    text-align: center;
-    margin-bottom: 15vh;
-    span {
-      color: $color1;
+  .introTitles {
+    z-index: 20;
+    h3,
+    h1 {
+      text-align: center;
+      span {
+        color: $color1;
+      }
     }
-  }
-  h3 {
-    font-size: 2rem;
-    margin-bottom: 14vh;
+    h3 {
+      margin-bottom: 44px;
+      font-size: 2rem;
+    }
   }
   .photoCont {
     overflow: hidden;
@@ -89,33 +95,26 @@ export default {
       }
     }
   }
-  @media screen and(min-width : $breakMd){
-    display: flex;
-    flex-direction: column;
+  @media screen and(min-width : $breakMd) {
     justify-content: center;
-    &::before{
+
+    &::before {
       display: block;
       z-index: 10;
     }
-    .introTitles{
+    .introTitles {
       position: absolute;
-      margin-left: 44px;
-      z-index: 20;
-      top: 42vh;
-      h3{
-        margin-bottom: 44px;
+      top: 88px;
+      h1 {
+        span {
+          color: $color2;
+        }
       }
     }
-    h3{
-      
-    }
-    h1{
-      top: 60vh;
-      span{
-        color: $color2;
-      }
-    }
-    .photoCont{
+
+    .photoCont {
+      position: relative;
+      top: 88px;
       z-index: 0;
     }
   }
