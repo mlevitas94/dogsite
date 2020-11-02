@@ -5,15 +5,23 @@
     </div>
     <div class="deskNav">
       <ul>
-        <li>About</li>
-        <li>Pricing</li>
-        <li>Contact</li>
+        <li v-on:click="windowChange('aboutCont')">About</li>
+        <li v-on:click="windowChange('priceCont')">Pricing</li>
+        <li v-on:click="windowChange('contactCont')">Contact</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+export default {
+  methods : {
+    windowChange : (scrollPoint) => {
+      document.getElementsByClassName(scrollPoint)[0].scrollIntoView();
+}
+  }
+}
+
 </script>
 
 <style lang='scss'>
@@ -47,6 +55,9 @@
         li {
           margin: 0 44px;
           padding-bottom: 11px;
+          &:hover{
+            cursor: pointer;
+          }
         }
       }
     }

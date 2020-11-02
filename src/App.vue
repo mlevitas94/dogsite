@@ -147,6 +147,7 @@ video {
   font: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 /* HTML5 display-role reset for older browsers */
 article,
