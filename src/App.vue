@@ -30,17 +30,17 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../variables.scss';
+@import "../variables.scss";
 #app {
   background-image: url("./assets/dogprint.png");
   background-size: contain;
-  background-position:center;
+  background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: $font1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @media screen and (min-width:$breakMd){
+  @media screen and (min-width: $breakMd) {
     background-position: top 35px center;
   }
 }
@@ -53,9 +53,17 @@ export default {
   z-index: 100;
   background-color: black;
   border-top-left-radius: 10px;
+  &:hover {
+    cursor: pointer;
+  }
   svg {
     color: white;
     transform: scaleX(-1);
+  }
+  @media screen and (min-width: $breakLg) {
+    border-radius: 10px;
+    bottom: 44px;
+    right: 44px;
   }
 }
 

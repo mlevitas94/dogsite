@@ -9,6 +9,9 @@ $breakSm : 600px;
 $breakMd : 750px;
 $breakLg : 1000px;
 
+$font1 :'Montserrat', sans-serif;
+$font2: 'Open Sans', sans-serif;
+
 @mixin spanDash{
     width: 100px;
     padding: 3px 0;

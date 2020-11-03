@@ -72,6 +72,7 @@
         list-style-position: inside;
         li {
           margin: 11px 0 0 5px;
+          font-style: italic;
         }
       }
     }

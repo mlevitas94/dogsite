@@ -35,7 +35,7 @@ export default {
 .introCont {
   height: calc(100vh - 43px);
   padding-top: 43px;
-  min-height: 600px;
+  min-height: 650px;
   max-height: 1000px;
   display: flex;
   flex-direction: column;
@@ -62,6 +62,7 @@ export default {
       text-align: center;
       span {
         color: $color1;
+        font-size: $size2;
       }
     }
     h3 {
@@ -107,7 +108,7 @@ export default {
       top: 88px;
       h1 {
         span {
-          color: $color2;
+          color: #9e9d9d;
         }
       }
     }

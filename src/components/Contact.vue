@@ -63,12 +63,18 @@ export default {};
       display: block;
       color: black;
     }
+    button {
+      font-family: $font2;
+      &:hover {
+        cursor: pointer;
+      }
+    }
     .buttons {
       display: flex;
       flex-direction: column;
       width: 60%;
       margin: 0 auto;
-      margin-top: 22px;
+      margin: 22px auto;
       button {
         margin: 11px 0;
         border: none;
@@ -99,19 +105,27 @@ export default {};
           width: 100%;
           padding: 5px 10px;
           box-sizing: border-box;
+          border-radius: 10px;
+          border: 1px solid #cacaca;
+          outline: none;
         }
         textarea {
           width: 100%;
           box-sizing: border-box;
+          border: 1px solid #cacaca;
+          border-radius: 10px;
+          outline: none;
+          padding: 5px 10px;
+          resize: vertical;
         }
       }
       button {
-        width: 40%;
-        margin: 0 auto;
-        border: 1px solid #848484;
+        width: 100px;
+        border: 1px solid #c3c3c3;
         background-color: $color2;
         padding: 5px 0;
         border-radius: 10px;
+        margin: 0 auto;
       }
     }
     .social {
@@ -134,25 +148,21 @@ export default {};
         width: 300px;
       }
       form {
-        button{
-          width: 100px;
-        }
         .contactForm {
           display: flex;
           justify-content: space-between;
           flex-flow: wrap;
           width: 80%;
           margin: 0 auto;
-          div{
+          div {
             width: 45%;
           }
-          .messageCont{
+          .messageCont {
             width: 100%;
-            textarea{
+            textarea {
               width: 100%;
             }
           }
-
         }
       }
     }
