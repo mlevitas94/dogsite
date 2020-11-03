@@ -35,7 +35,7 @@ export default {
 .introCont {
   height: calc(100vh - 43px);
   padding-top: 43px;
-  min-height: 650px;
+  min-height: 600px;
   max-height: 1000px;
   display: flex;
   flex-direction: column;
