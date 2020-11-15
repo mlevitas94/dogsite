@@ -73,9 +73,10 @@ export default {
   .photoCont {
     overflow: hidden;
     display: flex;
+    align-self: flex-start;
     @keyframes slide {
       0% {
-        transform: translate(0px);
+        transform: translate(0px, 0px);
       }
       100% {
         transform: translate(-50%);
