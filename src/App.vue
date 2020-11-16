@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="contactButton">
+    <div ref="nav" v-on:click="this.refs.nav.windowChange('contactCont')" class="contactButton">
       <font-awesome-icon icon="comment-dots" size="2x" />
     </div>
     <Nav />

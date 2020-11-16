@@ -22,10 +22,13 @@
 
 <script>
 export default {
+  name : "nav",
   methods: {
     mobileNavDrop: function(){
-      const drag = document.querySelector(".navDrag");
-      drag.classList.toggle("dragged");
+      if(window.innerWidth <= 750){
+        const drag = document.querySelector(".navDrag");
+        drag.classList.toggle("dragged");
+      }
     },
     windowChange: function(scrollPoint) {
       document.getElementsByClassName(scrollPoint)[0].scrollIntoView();
@@ -59,6 +62,7 @@ export default {
     .dragged {
       transform: translate(0%, 0%) !important;
       border-bottom-left-radius: 50%;
+      border: 1px solid grey;
     }
     .navDrag {
       width: 300px;
