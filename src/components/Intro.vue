@@ -4,8 +4,8 @@
       <h3>Jeffrey Rosario</h3>
       <h1>Dog Walking <span>•</span> Dog Sitting</h1>
       <div>
-        <h4>Brooklyn</h4>
-        <h4>Manhatten</h4>
+        <h4> <font-awesome-icon icon="map-marker-alt" size="1x" />Brooklyn</h4>
+        <h4>Manhatten <font-awesome-icon icon="map-marker-alt" size="1x" /></h4>
       </div>
     </div>
     <div class="photoCont">
@@ -84,6 +84,9 @@ export default {
         top: 44px;
         font-size: $size2;
         font-style: italic;
+        svg{
+          color: #ff8100;
+        }
       }
     }
   }
