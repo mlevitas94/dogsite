@@ -3,6 +3,10 @@
     <div class="introTitles">
       <h3>Jeffrey Rosario</h3>
       <h1>Dog Walking <span>•</span> Dog Sitting</h1>
+      <div>
+        <h4>Brooklyn</h4>
+        <h4>Manhatten</h4>
+      </div>
     </div>
     <div class="photoCont">
       <div class="slideCont">
@@ -57,6 +61,7 @@ export default {
   }
   .introTitles {
     z-index: 20;
+    position: relative;
     h3,
     h1 {
       text-align: center;
@@ -68,6 +73,18 @@ export default {
     h3 {
       margin-bottom: 44px;
       font-size: 2rem;
+    }
+    div {
+      width: 100vw;
+      max-width: $breakMd;
+      display: flex;
+      justify-content: space-around;
+      margin: 44px auto 0 auto;
+      h4 {
+        top: 44px;
+        font-size: $size2;
+        font-style: italic;
+      }
     }
   }
   .photoCont {
