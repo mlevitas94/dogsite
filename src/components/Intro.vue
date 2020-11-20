@@ -2,16 +2,18 @@
   <div class="introCont">
     <div class="introTitles">
       <h3>Jeffrey Rosario</h3>
-      <h1><span class="word">Walking</span> <span class="dot">•</span> <span class="word">Dog Sitting</span></h1>
+      <h1>
+        <span class="word">Walking</span> <span class="dot">•</span> <span class="word">Dog Sitting</span>
+      </h1>
       <div>
-        <h4> <font-awesome-icon icon="map-marker-alt" size="1x" />Brooklyn</h4>
+        <h4><font-awesome-icon icon="map-marker-alt" size="1x" />Brooklyn</h4>
         <h4><font-awesome-icon icon="map-marker-alt" size="1x" />Manhatten</h4>
       </div>
     </div>
     <div class="photoCont">
       <div class="slideCont">
         <div v-for="(dog, i) in Doglist" v-bind:key="i">
-          <img :src="dog" />
+          <img :src="dog" :class="`fade${i}`" />
         </div>
         <div v-for="(dog, i) in Doglist" v-bind:key="`extra${i}`">
           <img :src="dog" />
@@ -22,6 +24,8 @@
 </template>
 
 <script>
+// setInterval(() => {
+// }, 3000);
 import Dogs from "./compAssets/dogs";
 export default {
   name: "Intro",
@@ -66,7 +70,7 @@ export default {
     h1 {
       text-align: center;
       font-size: $size1;
-      .word{
+      .word {
         font-weight: bold;
       }
       .dot {
@@ -74,7 +78,7 @@ export default {
         font-size: $size3;
       }
     }
-    h1{
+    h1 {
       width: fit-content;
       margin: 0 auto;
       border-top: 1px solid black;
@@ -95,7 +99,7 @@ export default {
         top: 44px;
         font-size: $size1;
         font-style: italic;
-        svg{
+        svg {
           color: #ff8100;
         }
       }
