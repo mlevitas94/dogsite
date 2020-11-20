@@ -2,7 +2,7 @@
   <div class="introCont">
     <div class="introTitles">
       <h3>Jeffrey Rosario</h3>
-      <h1>Dog Walking <span>•</span> Dog Sitting</h1>
+      <h1><span class="word">Walking</span> <span class="dot">•</span> <span class="word">Dog Sitting</span></h1>
       <div>
         <h4> <font-awesome-icon icon="map-marker-alt" size="1x" />Brooklyn</h4>
         <h4><font-awesome-icon icon="map-marker-alt" size="1x" />Manhatten</h4>
@@ -65,10 +65,21 @@ export default {
     h3,
     h1 {
       text-align: center;
-      span {
-        color: $color1;
-        font-size: $size2;
+      font-size: $size1;
+      .word{
+        font-weight: bold;
       }
+      .dot {
+        color: $color1;
+        font-size: $size3;
+      }
+    }
+    h1{
+      width: fit-content;
+      margin: 0 auto;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      padding-bottom: 9px;
     }
     h3 {
       margin-bottom: 44px;
@@ -82,7 +93,7 @@ export default {
       margin: 44px auto 0 auto;
       h4 {
         top: 44px;
-        font-size: $size2;
+        font-size: $size1;
         font-style: italic;
         svg{
           color: #ff8100;
@@ -128,7 +139,7 @@ export default {
       position: absolute;
       top: 88px;
       h1 {
-        span {
+        .dot {
           color: #9e9d9d;
         }
       }
