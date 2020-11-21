@@ -13,10 +13,10 @@
     <div class="photoCont">
       <div class="slideCont">
         <div v-for="(dog, i) in Doglist" v-bind:key="i">
-          <img :src="dog" :class="`fade${i}`" />
+          <img :src="dog" :class="`fade fade${i}`" />
         </div>
         <div v-for="(dog, i) in Doglist" v-bind:key="`extra${i}`">
-          <img :src="dog" />
+          <img :src="dog" :class="`fade fade${Doglist.length + (i + 1)}`" />
         </div>
       </div>
     </div>
@@ -24,15 +24,40 @@
 </template>
 
 <script>
-// setInterval(() => {
-// }, 3000);
 import Dogs from "./compAssets/dogs";
 export default {
   name: "Intro",
   data() {
     return {
+      counter : 0,
       Doglist: [...Dogs],
     };
+  },
+  mounted: function () {
+    const imageFadeOffset = document.querySelectorAll(".fade1, .fade2, .fade3");
+    imageFadeOffset.forEach((img) => {
+      img.style.opacity = 1;
+    });
+
+    const allImages = document.querySelectorAll('.fade')
+
+    setInterval(() => {
+      if(this.counter === Dogs.length - 1){
+        imageFadeOffset.forEach((img) => {
+          img.style.opacity = 1;
+        });
+        this.counter = 0;
+      }else{
+        allImages[this.counter + 4].style.opacity = 1;
+
+        setTimeout(() => {
+          allImages[this.counter].style.opacity = 0;
+        }, 400);
+
+        this.counter++
+      }
+
+    },(1000*60)/Dogs.length);
   },
 };
 </script>
@@ -126,6 +151,10 @@ export default {
         overflow: hidden;
         margin: 0 22px;
         border-radius: 50%;
+        .fade {
+          opacity: 0;
+          transition: opacity 1s linear;
+        }
         img {
           width: 100%;
         }
