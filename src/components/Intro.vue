@@ -48,6 +48,9 @@ export default {
         if(fullspin && img.classList.contains('fade0')){
           img.style.opacity = 1;
         }
+        if(fullspin && img.classList.contains('fade3')){
+          img.style.opacity = 0;
+        }
       });
     }
 
@@ -56,10 +59,7 @@ export default {
         if (
           img.classList.contains("fade1") ||
           img.classList.contains("fade2") ||
-          img.classList.contains("fade3") ||
-          img.classList.contains("extrafade1") ||
-          img.classList.contains("extrafade2") ||
-          img.classList.contains("extrafade3")
+          img.classList.contains("fade3")
         ) {
           img.style.opacity = 1;
         }else{
@@ -75,6 +75,7 @@ export default {
         setOffset(true);
       } else if (this.counter === Dogs.length) {
         this.counter = 0;
+        fadeAllImages();
       } else if (this.counter === Dogs.length - 1) {
         fadeAllImages();
       }
