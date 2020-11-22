@@ -3,7 +3,8 @@
     <div class="introTitles">
       <h3>Jeffrey Rosario</h3>
       <h1>
-        <span class="word">Walking</span> <span class="dot">•</span> <span class="word">Dog Sitting</span>
+        <span class="word">Dog Walking</span> <span class="dot">•</span>
+        <span class="word">Dog Sitting</span>
       </h1>
       <div>
         <h4><font-awesome-icon icon="map-marker-alt" size="1x" />Brooklyn</h4>
@@ -16,7 +17,10 @@
           <img :src="dog" :class="`fade fade${i}`" />
         </div>
         <div v-for="(dog, i) in Doglist" v-bind:key="`extra${i}`">
-          <img :src="dog" :class="`fade fade${Doglist.length + (i + 1)}`" />
+          <img
+            :src="dog"
+            :class="`fade fade${Doglist.length + (i + 1)} extrafade${i}`"
+          />
         </div>
       </div>
     </div>
@@ -29,35 +33,59 @@ export default {
   name: "Intro",
   data() {
     return {
-      counter : 0,
+      counter: 0,
       Doglist: [...Dogs],
     };
   },
   mounted: function () {
-    const imageFadeOffset = document.querySelectorAll(".fade1, .fade2, .fade3");
-    imageFadeOffset.forEach((img) => {
-      img.style.opacity = 1;
-    });
+    const allImages = document.querySelectorAll(".fade");
 
-    const allImages = document.querySelectorAll('.fade')
+    function setOffset(fullspin) {
+      allImages.forEach((img) => {
+        if(img.classList.contains('fade1') || img.classList.contains('fade2') || img.classList.contains('fade3')){
+          img.style.opacity = 1;
+        }
+        if(fullspin && img.classList.contains('fade0')){
+          img.style.opacity = 1;
+        }
+      });
+    }
+
+    function fadeAllImages() {
+      allImages.forEach((img) => {
+        if (
+          img.classList.contains("fade1") ||
+          img.classList.contains("fade2") ||
+          img.classList.contains("fade3") ||
+          img.classList.contains("extrafade1") ||
+          img.classList.contains("extrafade2") ||
+          img.classList.contains("extrafade3")
+        ) {
+          img.style.opacity = 1;
+        }else{
+          img.style.opacity = 0;
+        }
+      });
+    }
+
+    setOffset(false);
 
     setInterval(() => {
-      if(this.counter === Dogs.length - 1){
-        imageFadeOffset.forEach((img) => {
-          img.style.opacity = 1;
-        });
+      if (this.counter === Dogs.length - 2) {
+        setOffset(true);
+      } else if (this.counter === Dogs.length) {
         this.counter = 0;
-      }else{
-        allImages[this.counter + 4].style.opacity = 1;
-
-        setTimeout(() => {
-          allImages[this.counter].style.opacity = 0;
-        }, 400);
-
-        this.counter++
+      } else if (this.counter === Dogs.length - 1) {
+        fadeAllImages();
       }
+      allImages[this.counter + 4].style.opacity = 1;
 
-    },(1000*60)/Dogs.length);
+      setTimeout(() => {
+        allImages[this.counter].style.opacity = 0;
+      }, 400);
+
+      this.counter++;
+    }, (1000 * 60) / Dogs.length);
   },
 };
 </script>
