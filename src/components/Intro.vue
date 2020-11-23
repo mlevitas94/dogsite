@@ -4,7 +4,7 @@
       <h3>Jeffrey Rosario</h3>
       <h1>
         <span class="word">Dog Walking</span> <span class="dot">•</span>
-        <span class="word">Dog Sitting</span>
+        <span class="word"> Dog Sitting</span>
       </h1>
       <div>
         <h4><font-awesome-icon icon="map-marker-alt" size="1x" />Brooklyn</h4>
@@ -128,7 +128,7 @@ export default {
         font-weight: bold;
       }
       .dot {
-        color: $color1;
+        color: $color3;
         font-size: $size3;
       }
     }
@@ -137,7 +137,8 @@ export default {
       margin: 0 auto;
       border-top: 1px solid black;
       border-bottom: 1px solid black;
-      padding-bottom: 9px;
+      padding-top: 10px;
+      padding-bottom: 19px;
     }
     h3 {
       margin-bottom: 44px;
@@ -145,16 +146,16 @@ export default {
     }
     div {
       width: 100vw;
-      max-width: $breakMd;
+      max-width: 415px;
       display: flex;
-      justify-content: space-around;
-      margin: 44px auto 0 auto;
+      justify-content: space-between;
+      margin: 34px auto 0 auto;
       h4 {
         top: 44px;
         font-size: $size1;
         font-style: italic;
         svg {
-          color: #ff8100;
+          color: $color3;
         }
       }
     }
@@ -200,11 +201,6 @@ export default {
     .introTitles {
       position: absolute;
       top: 88px;
-      h1 {
-        .dot {
-          color: #9e9d9d;
-        }
-      }
     }
 
     .photoCont {

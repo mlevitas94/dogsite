@@ -81,10 +81,10 @@ export default {};
         outline: none;
       }
       .appointmentReq {
-        background-color: #4c4c4c;
+        background-color: $color3;
         padding: 11px 0;
         border-radius: 20px;
-        color: white;
+        color: black;
       }
       .contactReq {
         background-color: transparent;
