@@ -4,7 +4,7 @@
       <h3>Jeffrey Rosario</h3>
       <h1>
         <span class="word">Dog Walking</span> <span class="dot">•</span>
-        <span class="word"> Dog Sitting</span>
+        <span class="word"> Pet Sitting</span>
       </h1>
       <div>
         <h4><font-awesome-icon icon="map-marker-alt" size="1x" />Brooklyn</h4>
@@ -146,9 +146,9 @@ export default {
     }
     div {
       width: 100vw;
-      max-width: 415px;
+      max-width: 600px;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       margin: 34px auto 0 auto;
       h4 {
         top: 44px;
@@ -205,7 +205,7 @@ export default {
 
     .photoCont {
       position: relative;
-      top: 88px;
+      top: 120px;
       z-index: 0;
     }
   }

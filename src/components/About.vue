@@ -53,7 +53,7 @@ In 2015, I co-founded a pet-care company and acted as the general manager during
       width: 100%;
       white-space: pre-wrap;
       padding: 60vw 22px 22px 22px;
-      line-height: $size1;
+      line-height: 22px;
     }
   }
   @media screen and (min-width: $breakSm) {

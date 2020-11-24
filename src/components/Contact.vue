@@ -17,22 +17,90 @@
         </div>
       </div>
       <div class="buttons">
-        <button class="appointmentReq">Appointment Request</button>
-        <button class="contactReq">Contact me</button>
+        <button
+          v-on:click="
+            formOn = true;
+            contactOn = false;
+          "
+          class="appointmentReq"
+        >
+          Appointment Request
+        </button>
+        <button
+          v-on:click="
+            contactOn = true;
+            formOn = false;
+          "
+          class="contactReq"
+        >
+          Contact me
+        </button>
       </div>
-      <form>
-        <div class="contactForm">
+      <form v-if="contactOn || formOn">
+        <div v-if="contactOn" class="formWrap">
           <div>
-            <label for="">Name</label>
-            <input type="text" />
+            <label for="name">Name</label>
+            <input type="text" id="name" />
           </div>
           <div>
-            <label for="">Email</label>
-            <input type="email" />
+            <label for="email">Email</label>
+            <input type="email" id="email" />
           </div>
-          <div class="messageCont">
-            <label for="">Message</label>
-            <textarea name="message" id="" rows="5"></textarea>
+          <div class="fullDiv">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="5"></textarea>
+          </div>
+        </div>
+
+        <div v-if="formOn" class="formWrap">
+          <div>
+            <label for="firstname">First Name <span>*</span></label>
+            <input type="text" id="firstname" />
+          </div>
+          <div>
+            <label for="lastname">Last Name <span>*</span></label>
+            <input type="text" id="lastname" />
+          </div>
+          <div class="fullDiv">
+            <label for="email">Email <span>*</span></label>
+            <input placeholder="you@example.com" type="email" id="email" />
+          </div>
+          <div>
+            <label for="phone">Phone <span>*</span></label>
+            <input placeholder="e.g. 999-999-9999" type="tel" id="phone" />
+          </div>
+          <div class="fullDiv service">
+            <div><label for="">What Services are you interested in? <span>*</span> </label></div>
+            <div>
+              <input type="checkbox" name="service" id="optionone" /><label
+                for="optionone"
+                >Weekly Dog Walking</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" name="service" id="optiontwo" /><label
+                for="optiontwo"
+                >As Needed Dog Walking</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" name="service" id="optionthree" /><label
+                for="optionthree"
+                >Pet Sitting</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" name="service" id="optionfour" /><label
+                for="optionfour"
+                >Medical Visits (Insulin, Post Op Care, etc.)</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" name="service" id="optionfive" /><label
+                for="optionfive"
+                >Senior Pet Care</label
+              >
+            </div>
           </div>
         </div>
         <button>Submit</button>
@@ -42,7 +110,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      formOn: false,
+      contactOn: false,
+    };
+  },
+};
 </script>
 
 <style lang="scss">
@@ -50,7 +125,6 @@ export default {};
 
 .contactCont {
   background-color: $color1;
-
   padding: 22px 22px 66px 22px;
   line-height: $size1;
   .sizeCont {
@@ -58,6 +132,7 @@ export default {};
     margin: 0 auto;
     p {
       margin-bottom: 44px;
+      line-height: 22px;
     }
     a {
       display: block;
@@ -85,6 +160,8 @@ export default {};
         padding: 11px 0;
         border-radius: 20px;
         color: black;
+        font-weight: bold;
+        font-size: 14px;
       }
       .contactReq {
         background-color: transparent;
@@ -95,28 +172,55 @@ export default {};
     form {
       display: flex;
       flex-direction: column;
-      div {
-        margin-bottom: 22px;
-        label {
-          display: block;
-          margin-bottom: 5px;
+      .formWrap {
+        div {
+          margin-bottom: 22px;
+          label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            span {
+              color: red;
+            }
+          }
+          input[type="text"],
+          input[type="tel"],
+          input[type="email"] {
+            width: 100%;
+            padding: 5px 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: 1px solid #cacaca;
+            outline: none;
+            font-size: 16px;
+            &::placeholder {
+              color: rgb(189, 189, 189);
+            }
+          }
+          textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #cacaca;
+            border-radius: 10px;
+            outline: none;
+            padding: 5px 10px;
+            resize: vertical;
+            font-size: 16px;
+          }
         }
-        input {
-          width: 100%;
-          padding: 5px 10px;
-          box-sizing: border-box;
-          border-radius: 10px;
-          border: 1px solid #cacaca;
-          outline: none;
-        }
-        textarea {
-          width: 100%;
-          box-sizing: border-box;
-          border: 1px solid #cacaca;
-          border-radius: 10px;
-          outline: none;
-          padding: 5px 10px;
-          resize: vertical;
+        .service {
+          div{
+            &:first-child{
+              font-weight: bold;
+            }
+            label{
+              
+              font-weight: unset;
+            }
+          }
+          label {
+            display: inline;
+          }
         }
       }
       button {
@@ -148,7 +252,7 @@ export default {};
         width: 300px;
       }
       form {
-        .contactForm {
+        .formWrap {
           display: flex;
           justify-content: space-between;
           flex-flow: wrap;
@@ -157,7 +261,7 @@ export default {};
           div {
             width: 45%;
           }
-          .messageCont {
+          .fullDiv {
             width: 100%;
             textarea {
               width: 100%;
