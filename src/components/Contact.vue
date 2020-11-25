@@ -38,39 +38,47 @@
       </div>
       <form v-if="contactOn || formOn">
         <div v-if="contactOn" class="formWrap">
-          <div>
-            <label for="name">Name</label>
+          <div class="group">
+            <label for="name">Name <span>*</span></label>
             <input type="text" id="name" />
           </div>
-          <div>
-            <label for="email">Email</label>
+          <div class="group">
+            <label for="email">Email <span>*</span></label>
             <input type="email" id="email" />
           </div>
-          <div class="fullDiv">
-            <label for="message">Message</label>
+          <div class="fullDiv group">
+            <label for="message">Message <span>*</span></label>
             <textarea name="message" id="message" rows="5"></textarea>
           </div>
         </div>
 
         <div v-if="formOn" class="formWrap">
-          <div>
+          <div class="group">
             <label for="firstname">First Name <span>*</span></label>
-            <input type="text" id="firstname" />
+            <input type="text" name="firstname" id="firstname" />
           </div>
-          <div>
+          <div class="group">
             <label for="lastname">Last Name <span>*</span></label>
-            <input type="text" id="lastname" />
+            <input type="text" name="lastname" id="lastname" />
           </div>
-          <div class="fullDiv">
+          <div class="fullDiv group">
             <label for="email">Email <span>*</span></label>
-            <input placeholder="you@example.com" type="email" id="email" />
+            <input placeholder="you@example.com" name="email" type="email" id="email" />
           </div>
-          <div>
+          <div class="group">
             <label for="phone">Phone <span>*</span></label>
-            <input placeholder="e.g. 999-999-9999" type="tel" id="phone" />
+            <input placeholder="e.g. 999-999-9999" name="phone" type="tel" id="phone" />
           </div>
-          <div class="fullDiv service">
-            <div><label for="">What Services are you interested in? <span>*</span> </label></div>
+          <div class="group">
+            <label for="date">Starting Date <span>*</span></label>
+            <input type="date" name="date" id="date" />
+          </div>
+          <div class="fullDiv options group">
+            <div>
+              <label for=""
+                >What Services are you interested in? <span>*</span>
+              </label>
+            </div>
             <div>
               <input type="checkbox" name="service" id="optionone" /><label
                 for="optionone"
@@ -101,9 +109,60 @@
                 >Senior Pet Care</label
               >
             </div>
+            <div>
+              <input type="checkbox" name="service" id="optionsix" /><label
+                for="optionsix"
+                >Pet Photography</label
+              >
+            </div>
+          </div>
+          <div class="fullDiv options group">
+            <div>
+              <label for="">What Pets Do You Have? <span>*</span> </label>
+            </div>
+            <div>
+              <input type="checkbox" name="pet" id="petoptionone" /><label
+                for="petoptionone"
+                >Dog(s)</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" name="pet" id="petoptiontwo" /><label
+                for="petoptiontwo"
+                >Cat(s)</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" name="pet" id="petoptionthree" /><label
+                for="petoptionthree"
+                >Small Mammal (e.g. Hamster)</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" name="pet" id="petoptionfour" /><label
+                for="petoptionfour"
+                >Reptile</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" name="pet" id="petoptionfive" /><label
+                for="petoptionfive"
+                >Bird</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" name="pet" id="petoptionsix" /><label
+                for="petoptionsix"
+                >Fish</label
+              >
+            </div>
+          </div>
+          <div class="fullDiv group">
+            <label for="needs">Tell me more about your pet needs</label>
+            <textarea name="needs" id="needs" rows="5"></textarea>
           </div>
         </div>
-        <button>Submit</button>
+        <button v-on:click="(e) => e.preventDefault()">Submit</button>
       </form>
     </div>
   </div>
@@ -173,6 +232,9 @@ export default {
       display: flex;
       flex-direction: column;
       .formWrap {
+        .group{
+          margin-bottom: 44px;
+        }
         div {
           margin-bottom: 22px;
           label {
@@ -208,13 +270,12 @@ export default {
             font-size: 16px;
           }
         }
-        .service {
-          div{
-            &:first-child{
+        .options {
+          div {
+            &:first-child {
               font-weight: bold;
             }
-            label{
-              
+            label {
               font-weight: unset;
             }
           }
