@@ -40,38 +40,59 @@
         <div v-if="contactOn" class="formWrap">
           <div class="group">
             <label for="name">Name <span>*</span></label>
-            <input type="text" id="name" />
+            <input maxlength="100" type="text" id="name" />
           </div>
           <div class="group">
             <label for="email">Email <span>*</span></label>
-            <input type="email" id="email" />
+            <input maxlength="75" type="email" id="email" />
           </div>
           <div class="fullDiv group">
             <label for="message">Message <span>*</span></label>
-            <textarea name="message" id="message" rows="5"></textarea>
+            <textarea
+              maxlength="2000"
+              name="message"
+              id="message"
+              rows="5"
+            ></textarea>
           </div>
         </div>
 
         <div v-if="formOn" class="formWrap">
           <div class="group">
             <label for="firstname">First Name <span>*</span></label>
-            <input type="text" name="firstname" id="firstname" />
+            <input maxlength="50" type="text" name="firstname" id="firstname" />
           </div>
           <div class="group">
             <label for="lastname">Last Name <span>*</span></label>
-            <input type="text" name="lastname" id="lastname" />
+            <input maxlength="50" type="text" name="lastname" id="lastname" />
           </div>
           <div class="fullDiv group">
             <label for="email">Email <span>*</span></label>
-            <input placeholder="you@example.com" name="email" type="email" id="email" />
+            <input
+              maxlength="75"
+              placeholder="you@example.com"
+              name="email"
+              type="email"
+              id="email"
+            />
           </div>
           <div class="group">
             <label for="phone">Phone <span>*</span></label>
-            <input placeholder="e.g. 999-999-9999" name="phone" type="tel" id="phone" />
+            <input
+              placeholder="e.g. 999-999-9999"
+              name="phone"
+              type="tel"
+              maxlength="15"
+              id="phone"
+            />
           </div>
           <div class="group">
             <label for="date">Starting Date <span>*</span></label>
             <input type="date" name="date" id="date" />
+          </div>
+          <div class="group">
+            <label for="zip">Zip Code <span>*</span></label>
+            <input maxlength="5" type="tel" name="zip" id="zip" />
           </div>
           <div class="fullDiv options group">
             <div>
@@ -159,22 +180,44 @@
           </div>
           <div class="fullDiv group">
             <label for="needs">Tell me more about your pet needs</label>
-            <textarea name="needs" id="needs" rows="5"></textarea>
+            <textarea
+              maxlength="2000"
+              name="needs"
+              id="needs"
+              rows="5"
+            ></textarea>
           </div>
         </div>
-        <button v-on:click="(e) => e.preventDefault()">Submit</button>
+        <button
+          v-on:click="
+            (e) => {
+              e.preventDefault();
+              submitForm();
+            }
+          "
+        >
+          Submit
+        </button>
       </form>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       formOn: false,
       contactOn: false,
     };
+  },
+  methods: {
+    submitForm: function () {
+      const inputs = document.querySelectorAll("input, textarea");
+      console.log(inputs);
+     
+    },
   },
 };
 </script>
@@ -232,7 +275,7 @@ export default {
       display: flex;
       flex-direction: column;
       .formWrap {
-        .group{
+        .group {
           margin-bottom: 44px;
         }
         div {

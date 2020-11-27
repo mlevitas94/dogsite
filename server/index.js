@@ -54,8 +54,4 @@ app.post('/email', async (req,res) => {
 
 app.get('*', (req, res)=>{  res.sendFile(path.join(__dirname, '../build/index.html'));})
 
-massive(DB_URL).then(db => {
-    console.log('db connected')
-    app.set('db', db);
-    app.listen(SERVER_PORT, () => console.log(`Now arriving at ${SERVER_PORT}`));
-  })
+app.listen(SERVER_PORT, () => console.log(`Now arriving at ${SERVER_PORT}`));
