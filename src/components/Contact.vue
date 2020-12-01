@@ -19,8 +19,10 @@
       <div class="buttons">
         <button
           v-on:click="
-            formOn = true;
-            contactOn = false;
+            () => {
+              formOn = true;
+              contactOn = false;
+            }
           "
           class="appointmentReq"
         >
@@ -28,8 +30,10 @@
         </button>
         <button
           v-on:click="
-            contactOn = true;
-            formOn = false;
+            () => {
+              contactOn = true;
+              formOn = false;
+            }
           "
           class="contactReq"
         >
@@ -40,11 +44,14 @@
         <div v-if="contactOn" class="formWrap">
           <div class="group">
             <label for="name">Name <span>*</span></label>
-            <input maxlength="100" type="text" id="name" />
+            <input maxlength="100" name="name" type="text" id="name" />
           </div>
           <div class="group">
-            <label for="email">Email <span>*</span></label>
-            <input maxlength="75" type="email" id="email" />
+            <label for="email"
+              >Email <span>*</span>
+              <span class="emailErr err">Invalid Email</span></label
+            >
+            <input maxlength="75" name="email" type="email" id="email" />
           </div>
           <div class="fullDiv group">
             <label for="message">Message <span>*</span></label>
@@ -67,7 +74,10 @@
             <input maxlength="50" type="text" name="lastname" id="lastname" />
           </div>
           <div class="fullDiv group">
-            <label for="email">Email <span>*</span></label>
+            <label for="email"
+              >Email <span>* </span>
+              <span class="emailErr err">Invalid Email</span></label
+            >
             <input
               maxlength="75"
               placeholder="you@example.com"
@@ -77,7 +87,10 @@
             />
           </div>
           <div class="group">
-            <label for="phone">Phone <span>*</span></label>
+            <label for="phone"
+              >Phone <span>*</span>
+              <span class="phoneErr err">Invalid Phone</span></label
+            >
             <input
               placeholder="e.g. 999-999-9999"
               name="phone"
@@ -91,7 +104,10 @@
             <input type="date" name="date" id="date" />
           </div>
           <div class="group">
-            <label for="zip">Zip Code <span>*</span></label>
+            <label for="zip"
+              >Zip Code <span>*</span>
+              <span class="zipErr err">Invalid Zip</span></label
+            >
             <input maxlength="5" type="tel" name="zip" id="zip" />
           </div>
           <div class="fullDiv options group">
@@ -101,40 +117,54 @@
               </label>
             </div>
             <div>
-              <input type="checkbox" name="service" id="optionone" /><label
-                for="optionone"
-                >Weekly Dog Walking</label
-              >
+              <input
+                type="checkbox"
+                name="service"
+                id="optionone"
+                value="Weekly Dog Walking"
+              /><label for="optionone">Weekly Dog Walking</label>
             </div>
             <div>
-              <input type="checkbox" name="service" id="optiontwo" /><label
-                for="optiontwo"
-                >As Needed Dog Walking</label
-              >
+              <input
+                type="checkbox"
+                name="service"
+                id="optiontwo"
+                value="As Needed Dog Walking"
+              /><label for="optiontwo">As Needed Dog Walking</label>
             </div>
             <div>
-              <input type="checkbox" name="service" id="optionthree" /><label
-                for="optionthree"
-                >Pet Sitting</label
-              >
+              <input
+                type="checkbox"
+                name="service"
+                id="optionthree"
+                value="Pet Sitting"
+              /><label for="optionthree">Pet Sitting</label>
             </div>
             <div>
-              <input type="checkbox" name="service" id="optionfour" /><label
-                for="optionfour"
+              <input
+                type="checkbox"
+                name="service"
+                id="optionfour"
+                value="Medical Visits (Insulin, Post Op Care, etc.)"
+              /><label for="optionfour"
                 >Medical Visits (Insulin, Post Op Care, etc.)</label
               >
             </div>
             <div>
-              <input type="checkbox" name="service" id="optionfive" /><label
-                for="optionfive"
-                >Senior Pet Care</label
-              >
+              <input
+                type="checkbox"
+                name="service"
+                id="optionfive"
+                value="Senior Pet Care"
+              /><label for="optionfive">Senior Pet Care</label>
             </div>
             <div>
-              <input type="checkbox" name="service" id="optionsix" /><label
-                for="optionsix"
-                >Pet Photography</label
-              >
+              <input
+                type="checkbox"
+                name="service"
+                id="optionsix"
+                value="Pet Photography"
+              /><label for="optionsix">Pet Photography</label>
             </div>
           </div>
           <div class="fullDiv options group">
@@ -142,40 +172,52 @@
               <label for="">What Pets Do You Have? <span>*</span> </label>
             </div>
             <div>
-              <input type="checkbox" name="pet" id="petoptionone" /><label
-                for="petoptionone"
-                >Dog(s)</label
-              >
+              <input
+                type="checkbox"
+                name="pet"
+                id="petoptionone"
+                value="Dog(s)"
+              /><label for="petoptionone">Dog(s)</label>
             </div>
             <div>
-              <input type="checkbox" name="pet" id="petoptiontwo" /><label
-                for="petoptiontwo"
-                >Cat(s)</label
-              >
+              <input
+                type="checkbox"
+                name="pet"
+                id="petoptiontwo"
+                value="Cat(s)"
+              /><label for="petoptiontwo">Cat(s)</label>
             </div>
             <div>
-              <input type="checkbox" name="pet" id="petoptionthree" /><label
-                for="petoptionthree"
-                >Small Mammal (e.g. Hamster)</label
-              >
+              <input
+                type="checkbox"
+                name="pet"
+                id="petoptionthree"
+                value="Small Mammal (e.g. Hamster)"
+              /><label for="petoptionthree">Small Mammal (e.g. Hamster)</label>
             </div>
             <div>
-              <input type="checkbox" name="pet" id="petoptionfour" /><label
-                for="petoptionfour"
-                >Reptile</label
-              >
+              <input
+                type="checkbox"
+                name="pet"
+                id="petoptionfour"
+                value="Reptile"
+              /><label for="petoptionfour">Reptile</label>
             </div>
             <div>
-              <input type="checkbox" name="pet" id="petoptionfive" /><label
-                for="petoptionfive"
-                >Bird</label
-              >
+              <input
+                type="checkbox"
+                name="pet"
+                id="petoptionfive"
+                value="Bird"
+              /><label for="petoptionfive">Bird</label>
             </div>
             <div>
-              <input type="checkbox" name="pet" id="petoptionsix" /><label
-                for="petoptionsix"
-                >Fish</label
-              >
+              <input
+                type="checkbox"
+                name="pet"
+                id="petoptionsix"
+                value="Fish"
+              /><label for="petoptionsix">Fish</label>
             </div>
           </div>
           <div class="fullDiv group">
@@ -198,6 +240,7 @@
         >
           Submit
         </button>
+        <span class="buttonErr">Please make sure all fields are valid</span>
       </form>
     </div>
   </div>
@@ -212,11 +255,140 @@ export default {
       contactOn: false,
     };
   },
+
   methods: {
+    addBlurs: function () {
+      document.querySelectorAll("input, textarea").forEach((input) => {
+        input.addEventListener("blur", () => {
+          console.log("hi");
+          if (!input.value) {
+            return;
+          }
+          if (input.name === "email") {
+            const emailRegex = RegExp(
+              /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ //eslint-disable-line
+            );
+            if (!emailRegex.test(input.value)) {
+              return;
+            }
+            document.querySelector(".emailErr").style.display = "none";
+          }
+          if (input.name === "phone") {
+            const telRegex = RegExp(
+              /^([\+][0-9]{1,3}([ \.\-])?)?([\(]{1}[0-9]{3}[\)])?([0-9A-Z \.\-]{1,32})((x|ext|extension)?[0-9]{1,4}?)$/g //eslint-disable-line
+            );
+            if (!telRegex.test(input.value)) {
+              return;
+            }
+            document.querySelector(".phoneErr").style.display = "none";
+          }
+          input.style.background = "white";
+        });
+      });
+    },
     submitForm: function () {
+      this.addBlurs()
       const inputs = document.querySelectorAll("input, textarea");
-      console.log(inputs);
-     
+      const errorLabels = document.querySelectorAll(".err");
+      let errorMade = false;
+      document.querySelector(".buttonErr").style.display = "none";
+      errorLabels.forEach((err) => {
+        err.style.display = "none";
+      });
+
+      for (let i = 0; i < inputs.length; i++) {
+        inputs[i].style.background = "white";
+        if (!inputs[i].value) {
+          errorMade = true;
+          inputs[i].style.background = "#ffe2e2";
+        }
+        if (inputs[i].name === "email") {
+          const emailRegex = RegExp(
+            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ //eslint-disable-line
+          );
+          if (!emailRegex.test(inputs[i].value)) {
+            errorMade = true;
+            document.querySelector(".emailErr").style.display = "inline";
+            inputs[i].style.background = "#ffe2e2";
+          }
+        }
+        if (inputs[i].name === "phone") {
+          const telRegex = RegExp(
+            /^([\+][0-9]{1,3}([ \.\-])?)?([\(]{1}[0-9]{3}[\)])?([0-9A-Z \.\-]{1,32})((x|ext|extension)?[0-9]{1,4}?)$/g //eslint-disable-line
+          );
+          if (!telRegex.test(inputs[i].value)) {
+            errorMade = true;
+            document.querySelector(".phoneErr").style.display = "inline";
+            inputs[i].style.background = "#ffe2e2";
+          }
+        }
+      }
+      if (errorMade) {
+        document.querySelector(".buttonErr").style.display = "inline";
+        return;
+      }
+
+      const payload = {
+        formType: this.contactOn ? "contact" : "request",
+        firstName:
+          document.querySelector("#firstname") === null
+            ? null
+            : document.querySelector("#firstname").value,
+        lastName:
+          document.querySelector("#lastname") === null
+            ? null
+            : document.querySelector("#lastname").value,
+        name:
+          document.querySelector("#name") === null
+            ? null
+            : document.querySelector("#name").value,
+        email:
+          document.querySelector("#email") === null
+            ? null
+            : document.querySelector("#email").value,
+        phone:
+          document.querySelector("#phone") === null
+            ? null
+            : document.querySelector("#phone").value,
+        date:
+          document.querySelector("#date") === null
+            ? null
+            : document.querySelector("#date").value,
+        zip:
+          document.querySelector("#zip") === null
+            ? null
+            : document.querySelector("#zip").value,
+        services:
+          document.querySelectorAll("input[name='service']") === null
+            ? null
+            : [...document.querySelectorAll("input[name='service']")]
+                .filter((input) => input.checked === true)
+                .map((input) => input.value),
+        petTypes:
+          document.querySelectorAll("input[name='pet']") === null
+            ? null
+            : [...document.querySelectorAll("input[name='pet']")]
+                .filter((input) => input.checked === true)
+                .map((input) => input.value),
+        needs:
+          document.querySelector("#needs") === null
+            ? null
+            : document.querySelector("#needs").value,
+        message:
+          document.querySelector("#message") === null
+            ? null
+            : document.querySelector("#message").value,
+      };
+      console.log(payload);
+
+      axios
+        .post("/email", payload)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
@@ -274,6 +446,12 @@ export default {
     form {
       display: flex;
       flex-direction: column;
+      .buttonErr {
+        text-align: center;
+        color: red;
+        margin-top: 22px;
+        display: none;
+      }
       .formWrap {
         .group {
           margin-bottom: 44px;
@@ -286,6 +464,9 @@ export default {
             font-weight: bold;
             span {
               color: red;
+            }
+            .err {
+              display: none;
             }
           }
           input[type="text"],
