@@ -260,7 +260,6 @@ export default {
     addBlurs: function () {
       document.querySelectorAll("input, textarea").forEach((input) => {
         input.addEventListener("blur", () => {
-          console.log("hi");
           if (!input.value) {
             return;
           }
@@ -282,15 +281,23 @@ export default {
             }
             document.querySelector(".phoneErr").style.display = "none";
           }
+          if(input.name === 'zip'){
+            if(!/\d{5}/.test(input.value)){
+              return
+            }
+            document.querySelector(".zipErr").style.display = "none";
+          }
           input.style.background = "white";
         });
       });
     },
     submitForm: function () {
-      this.addBlurs()
+      this.addBlurs();
       const inputs = document.querySelectorAll("input, textarea");
       const errorLabels = document.querySelectorAll(".err");
       let errorMade = false;
+      let serviceSelected = false;
+      let petSelected = false;
       document.querySelector(".buttonErr").style.display = "none";
       errorLabels.forEach((err) => {
         err.style.display = "none";
@@ -298,7 +305,7 @@ export default {
 
       for (let i = 0; i < inputs.length; i++) {
         inputs[i].style.background = "white";
-        if (!inputs[i].value) {
+        if (!inputs[i].value && inputs[i].name !== 'needs') {
           errorMade = true;
           inputs[i].style.background = "#ffe2e2";
         }
@@ -322,8 +329,23 @@ export default {
             inputs[i].style.background = "#ffe2e2";
           }
         }
+        if(inputs[i].name === "zip"){
+          if(!/\d{5}/.test(inputs[i].value)){
+            errorMade = true;
+            document.querySelector(".zipErr").style.display = "inline";
+            inputs[i].style.background = "#ffe2e2";
+          }
+        }
+        if (inputs[i].type === "checkbox") {
+          if (inputs[i].name === "pet" && inputs[i].checked === true) {
+            petSelected = true;
+          }
+          if (inputs[i].name === "service" && inputs[i].checked === true) {
+            serviceSelected = true;
+          }
+        }
       }
-      if (errorMade) {
+      if (errorMade || !serviceSelected || !petSelected) {
         document.querySelector(".buttonErr").style.display = "inline";
         return;
       }
@@ -379,7 +401,6 @@ export default {
             ? null
             : document.querySelector("#message").value,
       };
-      console.log(payload);
 
       axios
         .post("/email", payload)
