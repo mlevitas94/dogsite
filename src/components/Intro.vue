@@ -37,57 +37,58 @@ export default {
       Doglist: [...Dogs],
     };
   },
-  mounted: function () {
-    const allImages = document.querySelectorAll(".fade");
+  //just in case to bring back fading images. Problematic for mobile and various screen sizes
+  // mounted: function () {
+  //   const allImages = document.querySelectorAll(".fade");
 
-    function setOffset(fullspin) {
-      allImages.forEach((img) => {
-        if(img.classList.contains('fade1') || img.classList.contains('fade2') || img.classList.contains('fade3')){
-          img.style.opacity = 1;
-        }
-        if(fullspin && img.classList.contains('fade0')){
-          img.style.opacity = 1;
-        }
-        if(fullspin && img.classList.contains('fade3')){
-          img.style.opacity = 0;
-        }
-      });
-    }
+  //   function setOffset(fullspin) {
+  //     allImages.forEach((img) => {
+  //       if(img.classList.contains('fade1') || img.classList.contains('fade2') || img.classList.contains('fade3')){
+  //         img.style.opacity = 1;
+  //       }
+  //       if(fullspin && img.classList.contains('fade0')){
+  //         img.style.opacity = 1;
+  //       }
+  //       if(fullspin && img.classList.contains('fade3')){
+  //         img.style.opacity = 0;
+  //       }
+  //     });
+  //   }
 
-    function fadeAllImages() {
-      allImages.forEach((img) => {
-        if (
-          img.classList.contains("fade1") ||
-          img.classList.contains("fade2") ||
-          img.classList.contains("fade3")
-        ) {
-          img.style.opacity = 1;
-        }else{
-          img.style.opacity = 0;
-        }
-      });
-    }
+  //   function fadeAllImages() {
+  //     allImages.forEach((img) => {
+  //       if (
+  //         img.classList.contains("fade1") ||
+  //         img.classList.contains("fade2") ||
+  //         img.classList.contains("fade3")
+  //       ) {
+  //         img.style.opacity = 1;
+  //       }else{
+  //         img.style.opacity = 0;
+  //       }
+  //     });
+  //   }
 
-    setOffset(false);
+  //   setOffset(false);
 
-    setInterval(() => {
-      if (this.counter === Dogs.length - 2) {
-        setOffset(true);
-      } else if (this.counter === Dogs.length) {
-        this.counter = 0;
-        fadeAllImages();
-      } else if (this.counter === Dogs.length - 1) {
-        fadeAllImages();
-      }
-      allImages[this.counter + 4].style.opacity = 1;
+  //   setInterval(() => {
+  //     if (this.counter === Dogs.length - 2) {
+  //       setOffset(true);
+  //     } else if (this.counter === Dogs.length) {
+  //       this.counter = 0;
+  //       fadeAllImages();
+  //     } else if (this.counter === Dogs.length - 1) {
+  //       fadeAllImages();
+  //     }
+  //     allImages[this.counter + 4].style.opacity = 1;
 
-      setTimeout(() => {
-        allImages[this.counter].style.opacity = 0;
-      }, 400);
+  //     setTimeout(() => {
+  //       allImages[this.counter].style.opacity = 0;
+  //     }, 400);
 
-      this.counter++;
-    }, (1000 * 60) / Dogs.length);
-  },
+  //     this.counter++;
+  //   }, (1000 * 60) / Dogs.length);
+  // },
 };
 </script>
 
@@ -182,7 +183,7 @@ export default {
         margin: 0 22px;
         border-radius: 50%;
         .fade {
-          opacity: 0;
+          opacity: 1;
           transition: opacity 1s linear;
         }
         img {
