@@ -242,6 +242,17 @@
         </button>
         <span class="buttonErr">Please make sure all fields are valid</span>
       </form>
+      <div class="emailResult">
+        <span class="fail"
+          ><font-awesome-icon :icon="['fas', 'times']" size="1x" /> Something
+          went wrong. Please try again later</span
+        >
+        <span class="success"
+          ><font-awesome-icon :icon="['fas', 'check']" size="1x" /> Thanks for
+          your request! I will get back to you shortly to discuss further
+          details.</span
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -281,9 +292,9 @@ export default {
             }
             document.querySelector(".phoneErr").style.display = "none";
           }
-          if(input.name === 'zip'){
-            if(!/\d{5}/.test(input.value)){
-              return
+          if (input.name === "zip") {
+            if (!/\d{5}/.test(input.value)) {
+              return;
             }
             document.querySelector(".zipErr").style.display = "none";
           }
@@ -296,8 +307,8 @@ export default {
       const inputs = document.querySelectorAll("input, textarea");
       const errorLabels = document.querySelectorAll(".err");
       let errorMade = false;
-      let serviceSelected = false;
-      let petSelected = false;
+      let serviceSelected = this.formOn ? false : true;
+      let petSelected = this.formOn ? false : true;
       document.querySelector(".buttonErr").style.display = "none";
       errorLabels.forEach((err) => {
         err.style.display = "none";
@@ -305,7 +316,7 @@ export default {
 
       for (let i = 0; i < inputs.length; i++) {
         inputs[i].style.background = "white";
-        if (!inputs[i].value && inputs[i].name !== 'needs') {
+        if (!inputs[i].value && inputs[i].name !== "needs") {
           errorMade = true;
           inputs[i].style.background = "#ffe2e2";
         }
@@ -329,8 +340,8 @@ export default {
             inputs[i].style.background = "#ffe2e2";
           }
         }
-        if(inputs[i].name === "zip"){
-          if(!/\d{5}/.test(inputs[i].value)){
+        if (inputs[i].name === "zip") {
+          if (!/\d{5}/.test(inputs[i].value)) {
             errorMade = true;
             document.querySelector(".zipErr").style.display = "inline";
             inputs[i].style.background = "#ffe2e2";
@@ -349,6 +360,8 @@ export default {
         document.querySelector(".buttonErr").style.display = "inline";
         return;
       }
+
+      document.querySelector("form button").disabled = true;
 
       const payload = {
         formType: this.contactOn ? "contact" : "request",
@@ -406,9 +419,32 @@ export default {
         .post("/email", payload)
         .then((res) => {
           console.log(res);
+          this.contactOn = false;
+          this.formOn = false;
+
+          document.querySelector(".emailResult").style.transform =
+            "translate(0px, -70px)";
+          document.querySelector(".emailResult .success").style.display =
+            "flex";
+          document.querySelector(".emailResult .fail").style.display = "none";
+          setTimeout(() => {
+            document.querySelector(".emailResult").style.transform =
+              "translate(0px, 0px)";
+          }, 5000);
         })
         .catch((err) => {
           console.log(err);
+          this.contactOn = false;
+          this.formOn = false;
+          document.querySelector(".emailResult").style.transform =
+            "translate(0px, -70px)";
+          document.querySelector(".emailResult .fail").style.display = "flex";
+          document.querySelector(".emailResult .success").style.display =
+            "none";
+          setTimeout(() => {
+            document.querySelector(".emailResult").style.transform =
+              "translate(0px, 0px)";
+          }, 5000);
         });
     },
   },
@@ -437,6 +473,42 @@ export default {
       font-family: $font2;
       &:hover {
         cursor: pointer;
+      }
+    }
+    .emailResult {
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      width: 100%;
+      left: 0;
+      bottom: -55px;
+      transition: transform 0.3s linear;
+      transform: translate(0px, 0px);
+      span {
+        padding: 11px 22px;
+        border-radius: 20px;
+        color: white;
+        align-items: center;
+        svg {
+          background: white;
+          padding: 5px;
+          border-radius: 50%;
+          margin-right: 11px;
+        }
+      }
+      .fail {
+        display: none;
+        background-color: red;
+        svg {
+          color: red;
+        }
+      }
+      .success {
+        display: none;
+        background: #49ab4c;
+        svg {
+          color: #49ab4c;
+        }
       }
     }
     .buttons {
