@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   next()
 })
 
-// app.use( express.static( `${__dirname}/../build` ) );
+app.use( express.static( `${__dirname}/../dist` ) );
 
 
 app.post('/email', async (req, res) => {
@@ -92,6 +92,6 @@ app.post('/email', async (req, res) => {
 
 
 
-app.get('*', (req, res) => { res.sendFile(path.join(__dirname, '../build/index.html')); })
+app.get('*', (req, res) => { res.sendFile(path.join(__dirname, '../dist/index.html')); })
 
 app.listen(SERVER_PORT, () => console.log(`Now arriving at ${SERVER_PORT}`));
