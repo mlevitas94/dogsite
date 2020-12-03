@@ -443,7 +443,7 @@ export default {
             "none";
           setTimeout(() => {
             document.querySelector(".emailResult").style.transform =
-              "translate(0px, 0px)";
+              "translate(0px, -55px)";
           }, 5000);
         });
     },
