@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div ref="nav" v-on:click="this.refs.nav.windowChange('contactCont')" class="contactButton">
+    <div v-on:click="dropToContact()" class="contactButton">
       <font-awesome-icon icon="comment-dots" size="2x" />
     </div>
     <Nav />
@@ -19,6 +19,11 @@ import Price from "./components/Price";
 import Contact from "./components/Contact";
 export default {
   name: "App",
+  methods: {
+    dropToContact : function(){
+      document.getElementsByClassName('contactCont')[0].scrollIntoView()
+    }
+  },
   components: {
     Nav,
     Intro,
