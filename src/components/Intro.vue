@@ -14,7 +14,7 @@
     <div class="photoCont">
       <div class="slideCont">
         <div v-for="(dog, i) in Doglist" v-bind:key="i">
-          <img :src="dog" :class="`fade fade${i}`" />
+          <img :src="dog" :class="`fade fade${i}`" :alt="`Jeffrey Rosario Dog ${i+1}`" />
         </div>
         <div v-for="(dog, i) in Doglist" v-bind:key="`extra${i}`">
           <img

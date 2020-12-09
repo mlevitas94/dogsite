@@ -3,7 +3,7 @@
     <h3>About Me</h3>
     <span class="titleSpan"></span>
     <div>
-      <img src="../assets/IMG_3070.jpg" />
+      <img src="../assets/IMG_3070.jpg" alt="Jeffrey Rosario" />
       <span></span>
 
       <pre>
